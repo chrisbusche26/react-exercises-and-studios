@@ -1,5 +1,29 @@
+import "./styling.css";
+import recipedata from "./recipe.json";
+
 function AuthorInfo() {
-   return;
+  const authorName = recipedata.map((data) => (
+    <div key={data.name}>{data.author}</div>
+  ))
+
+  const authorImage = recipedata.map((data) => (
+    <div>
+      <img src={data.authorImage} class="authorImage"></img>
+    </div>
+  ))
+
+  const authorURL = recipedata.map((data) => (
+    <div>
+      <a href={data.website}>{data.website}</a>
+    </div>
+  ))
+  return (
+    <div>
+      {authorName}
+      {authorImage}
+      {authorURL}
+    </div>
+  );
  }
  
  export default AuthorInfo;
